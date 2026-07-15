@@ -37,3 +37,7 @@ pnpm preview    # previsualizar el build
 - [TypeScript](https://www.typescriptlang.org/) estricto, sin frameworks
 - [Tailwind CSS v4](https://tailwindcss.com/) — estilos (tokens de tema con modo claro/oscuro)
 - SVG generado dinámicamente para los diagramas
+
+## Licencia
+
+[MIT](LICENSE) © Luis Marrero
