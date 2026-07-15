@@ -24,14 +24,16 @@ Las fórmulas se renderizan con [MathJax](https://www.mathjax.org/). Incluye mod
 Requiere [Node.js](https://nodejs.org/) y [pnpm](https://pnpm.io/).
 
 ```bash
-pnpm install   # instalar dependencias
-pnpm dev       # servidor de desarrollo (http://localhost:5173)
-pnpm build     # build de producción en dist/
-pnpm preview   # previsualizar el build
+pnpm install    # instalar dependencias
+pnpm dev        # servidor de desarrollo (http://localhost:5173)
+pnpm typecheck  # comprobación de tipos (tsc --noEmit)
+pnpm build      # typecheck + build de producción en dist/
+pnpm preview    # previsualizar el build
 ```
 
 ## Stack
 
 - [Vite](https://vite.dev/) — build y servidor de desarrollo
-- JavaScript vanilla (ES modules), sin frameworks
+- [TypeScript](https://www.typescriptlang.org/) estricto, sin frameworks
+- [Tailwind CSS v4](https://tailwindcss.com/) — estilos (tokens de tema con modo claro/oscuro)
 - SVG generado dinámicamente para los diagramas
