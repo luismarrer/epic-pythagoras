@@ -10,34 +10,36 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-  
-  <header role="banner">
-    <h1><span class="logo-highlight">Σ</span> EpicPythagoras</h1>
-    
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema de color" title="Alternar Modo Oscuro/Claro">
-      <!-- Moon Icon (for Light Mode active state / switches to Dark) -->
-      <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+  <header role="banner" class="mx-auto mb-4 flex w-full max-w-[1200px] items-center justify-between p-1 sm:mb-6 sm:px-4 sm:py-2">
+    <h1 class="flex items-center gap-2 bg-gradient-to-br from-ink to-primary bg-clip-text text-[1.35rem] font-bold tracking-tight text-transparent sm:text-[1.8rem]">
+      <span class="text-primary">Σ</span> EpicPythagoras
+    </h1>
+
+    <button id="theme-toggle" class="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full border border-line bg-panel text-ink shadow-[var(--panel-shadow)] hover:scale-105 hover:border-primary" aria-label="Cambiar tema de color" title="Alternar Modo Oscuro/Claro">
+      <!-- Moon: visible in light mode (switches to dark) -->
+      <svg class="hidden h-5 w-5 light:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
       </svg>
-      <!-- Sun Icon (for Dark Mode active state / switches to Light) -->
-      <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sun: visible in dark mode (switches to light) -->
+      <svg class="h-5 w-5 light:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.22 4.22l1.58 1.58m12.42 12.42l1.58 1.58M3 12h2.25m13.5 0H21M6.02 17.98l1.58-1.58M17.98 6.02l1.58-1.58M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"></path>
       </svg>
     </button>
   </header>
 
-  <main role="main">
+  <main role="main" class="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-6">
     <!-- Main Tabs -->
-    <nav class="tab-navigation" aria-label="Navegación Principal" role="tablist">
+    <nav class="tab-navigation relative flex w-full max-w-full gap-1 self-center rounded-md border border-line bg-panel p-1.5 shadow-[var(--panel-shadow)] backdrop-blur-xl sm:w-fit" aria-label="Navegación Principal" role="tablist">
       <button id="tab-sets" class="tab-btn active" role="tab" aria-selected="true" aria-controls="sets-panel" tabindex="0">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="9" cy="12" r="6" stroke-dasharray=""></circle>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="max-[380px]:hidden">
+          <circle cx="9" cy="12" r="6"></circle>
           <circle cx="15" cy="12" r="6"></circle>
         </svg>
         Calculadora de Conjuntos
       </button>
       <button id="tab-fractions" class="tab-btn" role="tab" aria-selected="false" aria-controls="fractions-panel" tabindex="-1">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="max-[380px]:hidden">
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <circle cx="12" cy="6" r="3"></circle>
           <circle cx="12" cy="18" r="3"></circle>
@@ -49,35 +51,41 @@
     <!-- SETS PANEL -->
     <section id="sets-panel" class="panel-content active" role="tabpanel" aria-labelledby="tab-sets">
       <div class="calculator-grid">
-        
+
         <!-- Controls Column -->
         <div class="glass-panel">
           <h2 class="panel-title">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path>
             </svg>
             Entradas y Operaciones
           </h2>
-          
+
           <form id="sets-form" novalidate>
-            <div class="form-group">
-              <label for="set-input-a">Conjunto <span class="highlight-label">A</span></label>
-              <input type="text" id="set-input-a" placeholder="Ej. 1-5, a, b o rojo, azul" autocomplete="off">
+            <div class="mb-4 flex flex-col gap-2">
+              <label for="set-input-a" class="text-sm font-medium text-ink-soft">Conjunto <span class="font-semibold text-primary">A</span></label>
+              <input type="text" id="set-input-a" class="form-field" placeholder="Ej. 1-5, a, b o rojo, azul" autocomplete="off">
             </div>
 
-            <div class="form-group">
-              <label for="set-input-b">Conjunto <span class="highlight-label">B</span></label>
-              <input type="text" id="set-input-b" placeholder="Ej. 3-7, b, c, d" autocomplete="off">
+            <div class="mb-4 flex flex-col gap-2">
+              <label for="set-input-b" class="text-sm font-medium text-ink-soft">Conjunto <span class="font-semibold text-primary">B</span></label>
+              <input type="text" id="set-input-b" class="form-field" placeholder="Ej. 3-7, b, c, d" autocomplete="off">
             </div>
 
-            <div class="form-group">
-              <label for="set-input-u">Conjunto Universal <span class="highlight-label">U</span> (Opcional)</label>
-              <input type="text" id="set-input-u" placeholder="Ej. 1-10, a-z (para complementos)" autocomplete="off">
+            <div class="mb-4 flex flex-col gap-2">
+              <label for="set-input-c" class="text-sm font-medium text-ink-soft">Conjunto <span class="font-semibold text-primary">C</span> (Opcional)</label>
+              <input type="text" id="set-input-c" class="form-field" placeholder="Ej. 2, 4, 6" autocomplete="off">
+              <span class="text-xs text-ink-muted">Al rellenarlo se activa el diagrama de Venn de 3 conjuntos.</span>
             </div>
 
-            <div class="form-group">
-              <label>Operación a realizar</label>
-              <div class="operation-selector">
+            <div class="mb-4 flex flex-col gap-2">
+              <label for="set-input-u" class="text-sm font-medium text-ink-soft">Conjunto Universal <span class="font-semibold text-primary">U</span> (Opcional)</label>
+              <input type="text" id="set-input-u" class="form-field" placeholder="Ej. 1-10, a-z (para complementos)" autocomplete="off">
+            </div>
+
+            <div class="mb-4 flex flex-col gap-2">
+              <label class="text-sm font-medium text-ink-soft">Operación a realizar</label>
+              <div class="grid grid-cols-1 gap-2 min-[380px]:grid-cols-2">
                 <button type="button" class="btn-op active" data-op="union">Unión (A ∪ B)</button>
                 <button type="button" class="btn-op" data-op="intersection">Intersección (A ∩ B)</button>
                 <button type="button" class="btn-op" data-op="diff-ab">Diferencia (A − B)</button>
@@ -85,6 +93,7 @@
                 <button type="button" class="btn-op" data-op="sym-diff">Dif. Simétrica (A Δ B)</button>
                 <button type="button" class="btn-op" data-op="complement-a">Complemento (A')</button>
                 <button type="button" class="btn-op" data-op="complement-b">Complemento (B')</button>
+                <button type="button" class="btn-op" data-op="complement-c" hidden>Complemento (C')</button>
                 <button type="button" class="btn-op" data-op="product">Prod. Cartesiano (A × B)</button>
               </div>
             </div>
@@ -102,21 +111,19 @@
             <h3 class="panel-title">Representación Visual</h3>
             <div id="venn-container" class="visual-box">
               <div class="visual-box-title">Diagrama de Venn interactivo</div>
-              <!-- Venn Diagram will be injected here -->
-              <svg width="400" height="250" viewBox="0 0 400 250" class="venn-bg" id="venn-svg">
-                <!-- SVG markup injected dynamically -->
-              </svg>
+              <!-- Venn diagram markup is injected dynamically -->
+              <svg viewBox="0 0 400 250" class="h-auto w-full max-w-[460px]" id="venn-svg" role="img" aria-label="Diagrama de Venn"></svg>
             </div>
           </div>
-          
+
           <!-- Written output -->
-          <div class="glass-panel results-box">
+          <div class="glass-panel">
             <h3 class="panel-title">Resultados</h3>
-            
+
             <div class="math-result" id="set-result-display" aria-live="polite">
               Introduce conjuntos arriba para comenzar
             </div>
-            
+
             <div class="steps-box" id="set-steps-container">
               <h4>Explicación Paso a Paso</h4>
               <div id="set-steps-list">
@@ -132,51 +139,51 @@
     <!-- FRACTIONS PANEL -->
     <section id="fractions-panel" class="panel-content" role="tabpanel" aria-labelledby="tab-fractions">
       <!-- Fractions Section Sub-navigation -->
-      <div class="fraction-subtabs" role="tablist" aria-label="Operaciones de Fracciones">
+      <div class="fraction-subtabs grid grid-cols-2 gap-2 rounded-sm border border-field-line bg-field p-1.5 sm:grid-cols-4" role="tablist" aria-label="Operaciones de Fracciones">
         <button id="subtab-conversion" class="subtab-btn active" role="tab" aria-selected="true" aria-controls="panel-conversion" tabindex="0">Mixto ↔ Impropio</button>
         <button id="subtab-simplification" class="subtab-btn" role="tab" aria-selected="false" aria-controls="panel-simplification" tabindex="-1">Simplificar</button>
         <button id="subtab-missing" class="subtab-btn" role="tab" aria-selected="false" aria-controls="panel-missing" tabindex="-1">Valor Faltante</button>
         <button id="subtab-lcd" class="subtab-btn" role="tab" aria-selected="false" aria-controls="panel-lcd" tabindex="-1">Mínimo Común Denominador</button>
       </div>
 
-      <div class="calculator-grid" style="margin-top: 1rem;">
-        
+      <div class="calculator-grid">
+
         <!-- Controls Column -->
         <div class="glass-panel">
           <h2 class="panel-title">Datos de Fracción</h2>
-          
+
           <!-- SUBPANEL 1: Conversion Mixed/Improper -->
           <div id="panel-conversion" class="fraction-subpanel active" role="tabpanel" aria-labelledby="subtab-conversion">
             <form id="form-conversion" novalidate>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="flex flex-col gap-4">
                 <!-- Section A: Mixed to Improper -->
-                <div style="border-bottom: 1px solid var(--panel-border); padding-bottom: 1rem;">
-                  <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--primary);">Número Mixto a Impropia</h3>
-                  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 0.5rem; align-items: center;">
-                    <div class="form-group" style="margin-bottom: 0;">
-                      <label for="mix-whole">Parte Entera</label>
-                      <input type="number" id="mix-whole" placeholder="Entero" min="0">
+                <div class="border-b border-line pb-4">
+                  <h3 class="mb-3 text-base font-semibold text-primary">Número Mixto a Impropia</h3>
+                  <div class="grid grid-cols-[2fr_1fr] items-center gap-2">
+                    <div class="flex flex-col gap-2">
+                      <label for="mix-whole" class="text-sm font-medium text-ink-soft">Parte Entera</label>
+                      <input type="number" id="mix-whole" class="form-field" placeholder="Entero" min="0">
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                      <input type="number" id="mix-num" placeholder="Num" min="0" style="width: 100%; text-align: center; height: 38px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
-                      <div style="border-bottom: 2px solid var(--text-primary); margin: 2px 0;"></div>
-                      <input type="number" id="mix-den" placeholder="Den" min="1" style="width: 100%; text-align: center; height: 38px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
+                    <div class="flex w-full flex-col gap-1">
+                      <input type="number" id="mix-num" class="fraction-input" placeholder="Num" min="0" aria-label="Numerador">
+                      <div class="vinculum" aria-hidden="true"></div>
+                      <input type="number" id="mix-den" class="fraction-input" placeholder="Den" min="1" aria-label="Denominador">
                     </div>
                   </div>
-                  <button type="button" class="btn-primary" id="btn-convert-mixed" style="margin-top: 0.75rem;">
+                  <button type="button" class="btn-primary mt-3" id="btn-convert-mixed">
                     Convertir a Impropia
                   </button>
                 </div>
-                
+
                 <!-- Section B: Improper to Mixed -->
                 <div>
-                  <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--secondary);">Impropia a Número Mixto</h3>
-                  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25rem; max-width: 120px; margin: 0 auto;">
-                    <input type="number" id="imp-num" placeholder="Numerador" min="0" style="width: 100%; text-align: center; height: 40px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
-                    <div style="border-bottom: 2px solid var(--text-primary); width: 100%; margin: 4px 0;"></div>
-                    <input type="number" id="imp-den" placeholder="Denominador" min="1" style="width: 100%; text-align: center; height: 40px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
+                  <h3 class="mb-3 text-base font-semibold text-secondary">Impropia a Número Mixto</h3>
+                  <div class="mx-auto flex w-full max-w-[130px] flex-col gap-1">
+                    <input type="number" id="imp-num" class="fraction-input" placeholder="Numerador" min="0" aria-label="Numerador">
+                    <div class="vinculum" aria-hidden="true"></div>
+                    <input type="number" id="imp-den" class="fraction-input" placeholder="Denominador" min="1" aria-label="Denominador">
                   </div>
-                  <button type="button" class="btn-primary" id="btn-convert-improper" style="margin-top: 0.75rem;">
+                  <button type="button" class="btn-primary mt-3" id="btn-convert-improper">
                     Convertir a Mixto
                   </button>
                 </div>
@@ -187,10 +194,10 @@
           <!-- SUBPANEL 2: Simplification -->
           <div id="panel-simplification" class="fraction-subpanel" role="tabpanel" aria-labelledby="subtab-simplification">
             <form id="form-simplification" novalidate>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem; max-width: 120px; margin: 0 auto 1rem auto;">
-                <input type="number" id="simp-num" placeholder="Numerador" style="width: 100%; text-align: center; height: 40px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
-                <div style="border-bottom: 2px solid var(--text-primary); width: 100%; margin: 4px 0;"></div>
-                <input type="number" id="simp-den" placeholder="Denominador" min="1" style="width: 100%; text-align: center; height: 40px; font-family: var(--font-mono); border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); border-radius: var(--radius-sm);">
+              <div class="mx-auto mb-4 flex w-full max-w-[130px] flex-col gap-1">
+                <input type="number" id="simp-num" class="fraction-input" placeholder="Numerador" aria-label="Numerador">
+                <div class="vinculum" aria-hidden="true"></div>
+                <input type="number" id="simp-den" class="fraction-input" placeholder="Denominador" min="1" aria-label="Denominador">
               </div>
               <button type="submit" class="btn-primary" id="btn-simplify">
                 Simplificar Fracción
@@ -201,27 +208,27 @@
           <!-- SUBPANEL 3: Missing Value -->
           <div id="panel-missing" class="fraction-subpanel" role="tabpanel" aria-labelledby="subtab-missing">
             <form id="form-missing" novalidate>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-bottom: 1rem;">
+              <p class="mb-4 text-center text-[0.85rem] text-ink-soft">
                 Escribe tres valores. Deja uno vacío (o escribe una 'x') para encontrar su valor.
               </p>
-              
-              <div class="equivalent-grid">
-                <div class="eq-fraction-box">
-                  <input type="text" id="eq-a" class="eq-input" placeholder="A" autocomplete="off">
-                  <div style="border-bottom: 2px solid var(--text-primary); width: 100%; margin: 4px 0;"></div>
-                  <input type="text" id="eq-b" class="eq-input" placeholder="B" autocomplete="off">
+
+              <div class="flex items-center justify-center gap-2 text-2xl sm:gap-3">
+                <div class="flex flex-col items-center">
+                  <input type="text" id="eq-a" class="eq-input" placeholder="A" autocomplete="off" aria-label="Numerador A">
+                  <div class="vinculum" aria-hidden="true"></div>
+                  <input type="text" id="eq-b" class="eq-input" placeholder="B" autocomplete="off" aria-label="Denominador B">
                 </div>
-                
+
                 <div>=</div>
-                
-                <div class="eq-fraction-box">
-                  <input type="text" id="eq-c" class="eq-input" placeholder="C" autocomplete="off">
-                  <div style="border-bottom: 2px solid var(--text-primary); width: 100%; margin: 4px 0;"></div>
-                  <input type="text" id="eq-d" class="eq-input" placeholder="D" autocomplete="off">
+
+                <div class="flex flex-col items-center">
+                  <input type="text" id="eq-c" class="eq-input" placeholder="C" autocomplete="off" aria-label="Numerador C">
+                  <div class="vinculum" aria-hidden="true"></div>
+                  <input type="text" id="eq-d" class="eq-input" placeholder="D" autocomplete="off" aria-label="Denominador D">
                 </div>
               </div>
-              
-              <button type="submit" class="btn-primary" id="btn-solve-missing" style="margin-top: 1.5rem;">
+
+              <button type="submit" class="btn-primary mt-6" id="btn-solve-missing">
                 Encontrar Incógnita
               </button>
             </form>
@@ -230,37 +237,37 @@
           <!-- SUBPANEL 4: Least Common Denominator (LCD) -->
           <div id="panel-lcd" class="fraction-subpanel" role="tabpanel" aria-labelledby="subtab-lcd">
             <form id="form-lcd" novalidate>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <p class="mb-3 text-[0.85rem] text-ink-soft">
                 Introduce las fracciones para calcular el mínimo común denominador:
               </p>
-              
+
               <!-- Dynamic LCD row list -->
-              <div id="lcd-list" class="lcd-inputs-list">
-                <div class="lcd-fraction-row" data-index="0">
-                  <input type="number" class="lcd-num" placeholder="Num" required value="1">
+              <div id="lcd-list" class="flex max-h-[200px] flex-col gap-2 overflow-y-auto pr-1">
+                <div class="lcd-fraction-row">
+                  <input type="number" class="lcd-num" placeholder="Num" required value="1" aria-label="Numerador">
                   <span class="divider-slash">/</span>
-                  <input type="number" class="lcd-den" placeholder="Den" required min="1" value="2">
+                  <input type="number" class="lcd-den" placeholder="Den" required min="1" value="2" aria-label="Denominador">
                 </div>
-                <div class="lcd-fraction-row" data-index="1">
-                  <input type="number" class="lcd-num" placeholder="Num" required value="2">
+                <div class="lcd-fraction-row">
+                  <input type="number" class="lcd-num" placeholder="Num" required value="2" aria-label="Numerador">
                   <span class="divider-slash">/</span>
-                  <input type="number" class="lcd-den" placeholder="Den" required min="1" value="3">
+                  <input type="number" class="lcd-den" placeholder="Den" required min="1" value="3" aria-label="Denominador">
                 </div>
               </div>
-              
-              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+
+              <div class="mt-2 flex flex-wrap gap-2">
                 <button type="button" id="btn-add-lcd-row" class="btn-secondary">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
                   </svg>
                   Añadir Fracción
                 </button>
-                <button type="button" id="btn-remove-lcd-row" class="btn-secondary" style="color: var(--secondary);">
+                <button type="button" id="btn-remove-lcd-row" class="btn-secondary btn-secondary--danger">
                   Remover Última
                 </button>
               </div>
 
-              <button type="submit" class="btn-primary" id="btn-calculate-lcd" style="margin-top: 1.5rem;">
+              <button type="submit" class="btn-primary mt-6" id="btn-calculate-lcd">
                 Calcular MCDen
               </button>
             </form>
@@ -272,29 +279,29 @@
           <!-- Visual Fraction representations -->
           <div class="glass-panel">
             <h3 class="panel-title">Representación Gráfica</h3>
-            
-            <div id="fraction-visual-tabs" style="display: flex; gap: 0.5rem; justify-content: flex-end; width: 100%; border-bottom: 1px solid var(--panel-border); padding-bottom: 0.5rem;">
-              <button id="btn-visual-pie" class="btn-op active" style="padding: 0.3rem 0.7rem; font-size: 0.8rem; border-radius: 4px;">Pastel (Círculos)</button>
-              <button id="btn-visual-bar" class="btn-op" style="padding: 0.3rem 0.7rem; font-size: 0.8rem; border-radius: 4px;">Barras</button>
+
+            <div id="fraction-visual-tabs" class="flex w-full justify-end gap-2 border-b border-line pb-2">
+              <button type="button" id="btn-visual-pie" class="btn-op btn-chip active">Pastel (Círculos)</button>
+              <button type="button" id="btn-visual-bar" class="btn-op btn-chip">Barras</button>
             </div>
-            
+
             <div id="fraction-visual-container" class="visual-box">
               <div class="visual-box-title">Visualización de fracciones</div>
               <!-- SVG visualization will be drawn here -->
-              <div id="svg-fraction-draw-area" style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">Introduce valores para ver la representación visual</p>
+              <div id="svg-fraction-draw-area" class="flex w-full items-center justify-center">
+                <p class="placeholder-text">Introduce valores para ver la representación visual</p>
               </div>
             </div>
           </div>
-          
+
           <!-- Written output -->
-          <div class="glass-panel results-box">
+          <div class="glass-panel">
             <h3 class="panel-title">Resultados</h3>
-            
+
             <div class="math-result" id="fraction-result-display" aria-live="polite">
               Introduce valores a la izquierda para comenzar
             </div>
-            
+
             <div class="steps-box" id="fraction-steps-container">
               <h4>Resolución Paso a Paso</h4>
               <div id="fraction-steps-list">
@@ -309,10 +316,10 @@
 
   </main>
 
-  <footer role="contentinfo">
+  <footer role="contentinfo" class="mt-auto pb-4 pt-8 text-center text-[0.8rem] text-ink-muted">
     <p>EpicPythagoras &copy; 2026 - Herramientas Matemáticas Avanzadas</p>
   </footer>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
